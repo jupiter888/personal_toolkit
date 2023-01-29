@@ -1,2 +1,2 @@
 # toolkit
-python scripts for daily use
+Python & R scripts for daily use
