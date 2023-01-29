@@ -1,0 +1,48 @@
+# Python script that uses pandas library to create an Excel spreadsheet from a CSV file
+
+import pandas as pd
+
+# specify the file path of the CSV file
+csv_file = "example.csv"
+
+# read the CSV file into a DataFrame
+df = pd.read_csv(csv_file)
+
+# specify the file path for the Excel spreadsheet
+excel_file = "example.xlsx"
+
+# write the DataFrame to an Excel spreadsheet
+df.to_excel(excel_file, index=False)
+
+##################################################
+
+#This script reads the CSV file into a DataFrame, and then writes the DataFrame to an Excel spreadsheet with the name 'example.xlsx' which is stored in the current working directory.
+#You can also use other options like header, startrow, startcol while writing the dataframe to excel file.
+
+df.to_excel(excel_file, index=False, header=True, startrow=2, startcol=3)
+
+
+
+# You can also specify the sheetname while writing to excel file
+
+df.to_excel(excel_file, sheet_name = 'Sheet1', index=False, header=True)
+
+##################################################
+
+# Use openpyxl library to create and write to excel file
+
+from openpyxl import Workbook
+
+# create a new Excel file and add a worksheet
+book = Workbook()
+sheet = book.active
+
+# read the CSV file and write the data to the worksheet
+with open(csv_file, 'r') as f:
+    reader = csv.reader(f)
+    for r, row in enumerate(reader):
+        for c, val in enumerate(row):
+            sheet.cell(row=r+1, column=c+1, value=val)
+
+# save the Excel file
+book.save(excel_file)
