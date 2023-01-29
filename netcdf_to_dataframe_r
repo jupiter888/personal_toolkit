@@ -1,0 +1,17 @@
+library(ncdf4)
+
+# open a netCDF file
+nc <- nc_open("file.nc")
+
+# extract variables from netCDF file
+var1 <- ncvar_get(nc, "var1")
+var2 <- ncvar_get(nc, "var2")
+
+# convert variables to dataframe
+df <- data.frame(var1, var2)
+
+# close the netCDF file
+nc_close(nc)
+
+# Note that when you extract variables from netCDF file, it could be in 4D array, 
+# you may need to use apply() or lapply() function to reduce it to 2D before converting to dataframe.
