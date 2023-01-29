@@ -1,9 +1,9 @@
 import pandas as pd
 
-#specify path of the Excel spreadsheet file
+# specify path of the Excel spreadsheet file
 file_path = "some_file.xlsx"
 
-#read the Excel spreadsheet into a Data Frame
+# read the Excel spreadsheet into a Data Frame
 df = pd.read_excel(file_path)
 
 # specify the file path for the CSV file
