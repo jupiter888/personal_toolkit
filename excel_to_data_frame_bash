@@ -1,0 +1,1 @@
+df = pd.read_excel(file_path, sheet_name='Sheet1',skiprows=2, usecols='B:F')
