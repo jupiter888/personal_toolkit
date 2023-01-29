@@ -1,0 +1,37 @@
+# Python script that uses pandas library to create CSV file from a list of data:
+
+import pandas as pd
+
+# specify the data as a list of lists
+data = [['Jupiter', 36], ['Hranolka', 32], ['Lucidfer', 1]]
+
+# create a DataFrame from data
+df = pd.DataFrame(data, columns = ['Name', 'Age'])
+
+# specify the file path for CSV file
+csv_file = "example.csv"
+
+# write the DataFrame to a CSV file
+df.to_csv(csv_file, index=False)
+
+
+################################################
+
+
+#This script creates a DataFrame from list of data, with the columns named 'Name' and 'Age', then writes the DataFrame to a CSV file with the name 'example.csv' which is stored in the current working directory.
+You can also use other options like header to add header to the csv file
+
+df.to_csv(csv_file, index=False, header=True)
+
+
+################################################
+
+
+# You can also write the dataframe to csv file without creating a dataframe
+
+import csv
+
+with open(csv_file, 'w', newline='') as f:
+    csv_writer = csv.writer(f)
+    csv_writer.writerow(['Name', 'Age'])
+    csv_writer.writerows(data)
