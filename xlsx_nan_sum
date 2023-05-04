@@ -1,0 +1,2 @@
+#count the number of missing values in column B:
+=SUMPRODUCT(--NOT(ISNUMBER(B8:B88)))
